@@ -26,7 +26,7 @@ func main() {
 			registry.GradingService,
 		},
 		ServiceUpdateURL: serviceAddress + "/services",
-		HeartbeatURL: serviceAddress + "/heartbeat",
+		HeartbeatURL:     serviceAddress + "/heartbeat",
 	}
 
 	ctx, err := service.Start(context.Background(),
@@ -40,6 +40,7 @@ func main() {
 	if logProvider, err := registry.GetProvider(registry.LogService); err != nil {
 		log.SetClientLogger(logProvider, r.ServiceName)
 	}
-	<- ctx.Done()
+	log.Info("portal service starting")
+	<-ctx.Done()
 	fmt.Println("Shutting down portal.")
 }

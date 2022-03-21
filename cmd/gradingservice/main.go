@@ -34,6 +34,8 @@ func main() {
 		fmt.Printf("Logging service found at: %s\n", logProvider)
 		log.SetClientLogger(logProvider, r.ServiceName)
 	}
+	//stlog.Println("hello world")
+	log.Info("grading service starting")
 	<-ctx.Done()
 	fmt.Println("Shutting down grading service")
 }

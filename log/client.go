@@ -30,3 +30,13 @@ func (cl clientLogger) Write(data []byte) (int, error) {
 	}
 	return len(data), nil
 }
+
+func Info(msg string) {
+	stlog.Println("[info]:", msg)
+}
+func Debug(msg string) {
+	stlog.Println("[Debug]:", msg)
+}
+func Error(msg string) {
+	stlog.Println("[Error]:", msg)
+}
